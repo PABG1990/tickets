@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row" style="border-radius: 0px 0px 15px 15px; background-color: #34495e;">
+    <div class="col-12" style="padding: 10px; color: #ffffff;">
+      <strong>Bienvenid@: </strong> {{fullName}} <br>
+      <strong>Perfil: </strong> {{profile}} <br>
+      <strong>Empresa: </strong> {{customer}}
+    </div>
+  </div>
+  <div class="row navigation-menu-container">
+    <div class="col-12">
+      <navigation-menu></navigation-menu>
+    </div>
+  </div>
+  <div class="row content">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

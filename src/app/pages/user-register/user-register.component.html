@@ -1,0 +1,109 @@
+<div class="row">
+  <div class="col-12">
+    Usuarios / Registrar
+    <hr>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 form-container">
+    <form [formGroup]="applicationForm" (ngSubmit)="submit()" autocomplete="off">
+      <div class="row">
+        <div class="col-12" style="text-align: center;">
+          Datos personales
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label>Cliente</label>
+          <select class="form-control" formControlName="customer_id">
+            <option value="">- seleccione</option>
+            <option *ngFor="let customer of customersList" value="{{customer.id}}">{{customer.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Tipo de identificación</label>
+          <select class="form-control" formControlName="document_type_id">
+            <option value="">- seleccione</option>
+            <option *ngFor="let documentType of documentTypesList" value="{{documentType.id}}">{{documentType.name}}</option>
+          </select>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Número de identificación</label>
+          <input type="number" min="0" class="form-control" formControlName="document">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Primer nombre</label>
+          <input type="text" class="form-control" formControlName="first_name" (input)="formatText('first_name')">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Segundo nombre (opcional)</label>
+          <input type="text" class="form-control" formControlName="second_name" (input)="formatText('second_name')">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Primer apellido</label>
+          <input type="text" class="form-control" formControlName="first_lastname" (input)="formatText('first_lastname')">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Segundo apellido (opcional)</label>
+          <input type="text" class="form-control" formControlName="second_lastname" (input)="formatText('second_lastname')">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label>Teléfono</label>
+          <input type="text" class="form-control" formControlName="phone">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label>Correo electrónico</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="email"
+            (input)="formatText('email')">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12" style="text-align: center;margin-top: 16px;">
+          Datos de usuario
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Perfil</label>
+          <select class="form-control" formControlName="profile_id">
+            <option value="">- seleccione</option>
+            <option *ngFor="let profile of profilesList" value="{{profile.id}}">{{profile.name}}</option>
+          </select>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Usuario</label>
+          <input type="text" class="form-control" formControlName="username" (input)="formatText('username')">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label>Contraseña</label>
+          <input type="password" class="form-control" formControlName="password">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <hr>
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="!applicationForm.valid">
+            <i class="fa fa-save"></i> Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

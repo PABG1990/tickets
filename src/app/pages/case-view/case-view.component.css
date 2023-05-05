@@ -1,0 +1,26 @@
+.options-container {
+  margin-bottom: 16px;
+}
+.btn {
+  margin-right: 5px;
+}
+.case-topic {
+  display: flex;
+  flex-direction: row;
+  border:1px solid #dddddd;
+  padding-bottom: 5px;
+}
+.case-key {
+  flex: 1;
+}
+.case-value {
+  flex: 4;
+}
+.container-forms {
+  padding: 10px;
+}
+.container-forms > div {
+  padding: 5px;
+  border-radius: 5px;
+  border:1px solid #dddddd;
+}

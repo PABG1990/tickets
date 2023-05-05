@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-12">
+    Soportes / Ver
+    <hr>
+  </div>
+</div>
+<div class="row list-item" *ngFor="let case of casesList">
+  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+    <label style="padding: 5px;border-radius: 5px;" [style.backgroundColor]="getStatusColor(case.case_status)">{{case.case_status}}</label><br>
+    <strong>Fecha creación: </strong>{{case.created_at | date:'fullDate'}}<br>
+    <strong>Fecha programación: </strong>{{case.scheduled_date | date:'fullDate'}}<br>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+    <button class="btn btn-info" (click)="viewCase(case.id)"><i class="fa fa-eye"></i></button>
+  </div>
+</div>

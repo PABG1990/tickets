@@ -1,0 +1,134 @@
+<div class="row">
+  <div class="col-12">
+    Soportes / Ver caso de soporte
+    <hr>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 form-container">
+    <div class="options-container">
+        <button
+          *ngIf="accessButtons.showAssign"
+          class="btn btn-info"
+          (click)="showForm('assignTechnician')">
+          <i class="fa fa-user"></i> Agendar con técnico
+        </button>
+        <button
+          *ngIf="accessButtons.showReschedule"
+          class="btn btn-warning"
+          (click)="showForm('reScheduleCase')">
+          <i class="fa fa-clock"></i> Reagendar
+        </button>
+        <button
+          *ngIf="accessButtons.showAddObservations"
+          class="btn btn-secondary"
+          (click)="showForm('addObservations')">
+          <i class="fa fa-message"></i> Agregar observaciones
+        </button>
+        <button
+          *ngIf="accessButtons.showAddObservations"
+          class="btn btn-success"
+          (click)="finalizeCase()">
+          <i class="fa fa-check"></i> Finalizar soporte
+        </button>
+    </div>
+    <div class="container-forms">
+      <form [formGroup]="assingForm" (ngSubmit)="assingCase()" *ngIf="showAssignTechnicianForm">
+        <label>Seleccione el técnico para asignarle la solicitud</label><br>
+        <select class="form-control" formControlName="technician_id">
+          <option value="">-Seleccione</option>
+          <option *ngFor="let item of techniciansList" [value]="item.id">{{item.person.first_name}} {{item.person.first_lastname}}</option>
+        </select>
+        <label>Fecha de revisión</label>
+        <input class="form-control" type="date" formControlName="scheduled_date">
+        <hr>
+        <button type="submit" class="btn btn-primary" [disabled]="!this.assingForm.valid">Asignar</button>
+      </form>
+      <form [formGroup]="reScheduleForm" (ngSubmit)="reScheduleCase()" *ngIf="showRescheduleCase">
+        <label>Seleccione la fecha de reagendamiento</label><br>
+        <input class="form-control" type="date" formControlName="scheduled_date">
+        <hr>
+        <button class="btn btn-primary" [disabled]="!this.reScheduleForm.valid">Re Agendar</button>
+      </form>
+      <form [formGroup]="observationsForm" (ngSubmit)="addObservations()" *ngIf="showAddObservations">
+        <label>Indique las observaciones del caso</label><br>
+        <textarea class="form-control" rows="5" formControlName="observations" (input)="formatText('observations')"></textarea>
+        <hr>
+        <button class="btn btn-primary" [disabled]="!this.observationsForm.valid">Guardar observaciones</button>
+      </form>
+    </div>
+    <div>
+      Datos del soporte
+    </div>
+    <hr>
+    <div class="case-topic">
+      <div class="case-key">
+        <strong>Estado: </strong>
+      </div>
+      <div class="case-value">
+        {{selectedCase.case_status}}
+      </div>
+    </div>
+    <div class="case-topic">
+      <div class="case-key">
+        <strong>Tipo de soporte: </strong>
+      </div>
+      <div class="case-value">
+        {{selectedCase.support_type.name}}
+      </div>
+    </div>
+    <div class="case-topic">
+      <div class="case-key">
+        <strong>Asignado a: </strong>
+      </div>
+      <div class="case-value">
+        {{!isAssigned ? 'Ninguno': assignedToName}}
+      </div>
+    </div>
+    <div class="case-topic">
+      <div class="case-key">
+      </div>
+      <div class="case-value">
+        {{!isAssigned ? 'Ninguno': assignedToEmail}}
+      </div>
+    </div>
+    <div class="case-topic">
+      <div class="case-key">
+        <strong>Fecha de visita: </strong>
+      </div>
+      <div class="case-value">
+        {{!isAssigned ? 'Sin fecha programada': assignedToDate | date: 'fullDate'}}
+      </div>
+    </div>
+    <div class="case-topic">
+      <div class="case-key">
+        <strong>Descripción: </strong>
+      </div>
+      <div class="case-value">
+        {{selectedCase.description}}
+      </div>
+    </div>
+    <div style="margin-top: 20px;">
+      Trazabilidad
+    </div>
+    <hr>
+    <div class="case-topic">
+      <div style="flex: 1;">
+        <strong>Fecha de registro: </strong>
+      </div>
+      <div style="flex: 2;">
+        <strong>Observaciones</strong>
+      </div>
+    </div>
+    <div *ngFor="let trace of caseTraceability">
+      <div class="case-topic">
+        <div style="flex: 1;">
+          {{trace.created_at | date:'fullDate'}}
+        </div>
+        <div style="flex: 2;">
+          {{trace.observations}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

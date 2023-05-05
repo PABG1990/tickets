@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-12">
+    Soportes / Registrar
+    <hr>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 form-container">
+    Datos del soporte
+    <hr>
+    <form [formGroup]="applicationForm" (ngSubmit)="submit()" autocomplete="off">
+      <div class="row">
+        <div class="col-12">
+          <label>Tipo de soporte</label>
+          <select class="form-control" formControlName="support_type_id">
+            <option value="">- seleccione</option>
+            <option *ngFor="let type of supportTypesList" value="{{type.id}}">{{type.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label>Descripción</label>
+          <textarea class="form-control" rows="6" formControlName="description" (input)="formatText('description')"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <hr>
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="!applicationForm.valid">
+            <i class="fa fa-save"></i> Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

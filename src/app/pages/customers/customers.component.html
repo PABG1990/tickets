@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-12">
+    Clientes / Ver
+    <hr>
+  </div>
+</div>
+<div class="row list-item" *ngFor="let customer of customersList">
+  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+    {{customer.name}}<br>
+    <strong>Dirección: </strong>{{customer.address}}<br>
+    <strong>Teléfono: </strong>{{customer.phone}}<br>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+  </div>
+</div>

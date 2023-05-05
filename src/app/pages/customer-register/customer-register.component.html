@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-12">
+    Clientes / Registrar
+    <hr>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 form-container">
+    Datos del cliente
+    <hr>
+    <form [formGroup]="applicationForm" (ngSubmit)="submit()" autocomplete="off">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <label>Nit</label>
+          <input type="number" class="form-control" min="0" formControlName="nit">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <label>Dígito de verificación</label>
+          <input type="number" class="form-control" min="0" formControlName="verification_code">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label>Nombre</label>
+          <input type="text" class="form-control" formControlName="name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label>Dirección</label>
+          <input type="text" class="form-control" formControlName="address">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label>Teléfono</label>
+          <input type="text" class="form-control" formControlName="phone">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <hr>
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="!applicationForm.valid">
+            <i class="fa fa-save"></i> Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

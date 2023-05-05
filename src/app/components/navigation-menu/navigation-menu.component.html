@@ -1,0 +1,3 @@
+<app-menu-admin *ngIf="showAdminMenu" (emitCloseSession)="closeSession()"></app-menu-admin>
+<app-menu-technician *ngIf="showTechnicianMenu" (emitCloseSession)="closeSession()"></app-menu-technician>
+<app-menu-user *ngIf="showUserMenu" (emitCloseSession)="closeSession()"></app-menu-user>

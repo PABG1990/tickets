@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="login-container">
+    <h3>Iniciar sesión</h3>
+    <form [formGroup]="applicationForm" (ngSubmit)="submit()" autocomplete="off">
+      <div>
+        <label>Usuario:</label><br>
+        <input type="text" class="form-control" formControlName="username">
+      </div>
+      <div>
+        <label>Contraseña:</label><br>
+        <input type="password" class="form-control" formControlName="password">
+      </div>
+      <div>
+        <hr>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="!this.applicationForm.valid">Iniciar sesión</button>
+      </div>
+    </form>
+  </div>
+</div>

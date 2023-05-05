@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <div class="dropdown">
+          <a class="btn btn-info btn-block" routerLink="home">
+            <i class="fa-solid fa-home"></i> Inicio
+          </a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <div class="dropdown">
+          <button class="btn btn-info btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-building"></i> Clientes
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" routerLink="customers"><i class="fa fa-eye"></i> Ver</a>
+            <a class="dropdown-item" routerLink="customer-register"><i class="fa fa-plus"></i> Registrar</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <div class="dropdown">
+          <button class="btn btn-info btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-users"></i> Usuarios
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" routerLink="users"><i class="fa fa-eye"></i> Ver</a>
+            <a class="dropdown-item" routerLink="user-register"><i class="fa fa-plus"></i> Registrar</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <div class="dropdown">
+          <button class="btn btn-info btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-book"></i> Soportes
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" routerLink="cases"><i class="fa fa-eye"></i> Ver</a>
+            <a class="dropdown-item" routerLink="case-register"><i class="fa fa-plus"></i> Registrar</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="form-inline my-2 my-lg-0">
+    <button class="btn btn-danger btn-block" (click)="closeSession()">
+      <i class="fa-solid fa-right-from-bracket"></i> Salir
+    </button>
+  </div>
+</nav>
